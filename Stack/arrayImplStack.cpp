@@ -28,6 +28,15 @@ int pop(){
     return value;
 
 }
+int peek(){
+    if(top ==-1){
+        cout<<"Stack is Empty!!"<<endl;
+        exit(1);
+
+    }
+    cout<<"The top most element is:"<<stackArray[top]<<endl;
+    return stackArray[top];
+}
 void display(){
     if(top == -1){
         cout<<"Stack Underfow!!"<<endl; 
@@ -42,31 +51,34 @@ int main(){
     int choice,data;
     while(1){
         cout<<"\nSelect one of the Following choice:"<<endl;
-        cout<<"1) PUSH"<<endl;
-        cout<<"2) POP"<<endl;
-        cout<<"3) DISPLAY"<<endl;
-        cout<<"4) EXIT"<<endl;
-        cout<<"Choose one(1/2/3/4):"<<endl;
+        cout<<"1) PUSH AN ELEMENT IN THE STACK"<<endl;
+        cout<<"2) POP AN ELEMENT FROM THE STACK"<<endl;
+        cout<<"3) PRINT THE TOP MOST ELEMENT"<<endl;
+        cout<<"4) PRINT ALL ELEMENTS IN THE STACK"<<endl;
+        cout<<"5) EXIT"<<endl;
+        cout<<" Enter your Choice(1/2/3/4/5):";
         cin>>choice;
         switch(choice){
             case 1:
-            push(data);
-            break;
+                push(data);
+                break;
             case 2:
-            pop();
-            break;
+                pop();
+                break;
             case 3:
-            display();
-            break;
+                peek();
+                break;
             case 4:
-            cout<<"Exited Successfully."<<endl;
-            exit(0);
-            break;
+                display();
+                break;    
+            case 5:
+                cout<<"Exited Successfully."<<endl;
+                exit(0);
+                break;
             default:
-            cout<<"choose a valid number!!"<<endl;
-            break;
-
-        }
+                cout<<"choose a valid number!!"<<endl;
+                break;
+                }
     }
     return 0;
 }
