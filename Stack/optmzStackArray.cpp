@@ -4,41 +4,62 @@ using namespace std;
 int stackArray[size];
 int top = -1;
 
-void push(int data){
+int isFull(){
     if(top == size-1){
-        cout<<"stack Overflow!!"<<endl;
-        return ;
+        return 1;
     }
+    else{
+        return 0;
+    }
+}
+int isEmpty(){
+    if(top == -1){
+        return 1;
+    }
+    else{
+        return 0;
+    }
+}
+
+void push(int data){
+    if(isFull()){
+        cout<<"stack Overflow!!"<<endl;
+        return;
+    }
+    else{
     top = top+1;
     cout<<"Enter data to be inserted in the Stack:"<<endl;
     cin>>data;
     stackArray[top] = data;
     cout<<data<<" inserted Successfully."<<endl;
+    }
     
 }
-void pop(){ 
+int pop(){ 
     int value;
-    if(top ==-1){
+    if(isEmpty()){
         cout<<"stack is empty!!."<<endl;
-        exit(1); 
+        exit(1);
     }
+    else{
     value = stackArray[top];
     top = top-1;
     cout<<value<<" Successfully deleted."<<endl;
-    //return value;
+    return value;
+    }
 
 }
-void peek(){
-    if(top ==-1){
+int peek(){
+    if(isEmpty()){
         cout<<"Stack is Empty!!"<<endl;
         exit(1);
 
     }
     cout<<"The top most element is:"<<stackArray[top]<<endl;
-   // return stackArray[top];
+    return stackArray[top];
 }
 void display(){
-    if(top == -1){
+    if(isEmpty()){
         cout<<"Stack Underfow!!"<<endl; 
         return;
     }
